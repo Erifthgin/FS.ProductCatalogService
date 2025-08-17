@@ -1,0 +1,6 @@
+@FS.ProductCatalogService_HostAddress = http://localhost:5268
+
+GET {{FS.ProductCatalogService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
