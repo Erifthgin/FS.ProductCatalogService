@@ -9,8 +9,9 @@ namespace FS.ProductCatalogService.BLL.ProductCatalogCategories;
 
 internal class ProductCatalogCategoryBLL(IRepository<ProductCatalogCategory> repository,
     IUnitOfWork unitOfWork,
-    IMapper mapper, FluentValidation.IValidator<ProductCatalogCategoryRequest> requestValidator,
-    ILogger logger,
+    IMapper mapper, 
+    IFluentValidator<ProductCatalogCategoryRequest> requestValidator,
+    ILogger<ProductCatalogCategoryBLL> logger,
     IPredicateBuilder<ProductCatalogCategory, ProductCatalogCategoryFilter> predicateBuilder) : 
     StandardBLL<ProductCatalogCategory, ProductCatalogCategoryRequest, ProductCatalogCategoryResponse, ProductCatalogCategoryFilter>(
         repository, unitOfWork, mapper, requestValidator, logger, predicateBuilder),

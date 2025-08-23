@@ -1,5 +1,4 @@
-﻿using FS.ProductCatalogService.Database.Entities;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace FS.ProductCatalogService.BLL.Interfaces.DB;
 

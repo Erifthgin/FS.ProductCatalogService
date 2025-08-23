@@ -12,7 +12,7 @@ var config = new ConfigurationBuilder()
     .AddEnvironmentVariables()
     .Build();
 builder.Services.AddSingleton(config);
-builder.Services.AddServices(config);
+builder.Services.AddInfrastructureServices(config);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

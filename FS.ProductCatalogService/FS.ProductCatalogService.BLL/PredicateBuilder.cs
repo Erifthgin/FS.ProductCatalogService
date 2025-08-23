@@ -1,14 +1,12 @@
 ﻿using FS.ProductCatalogService.BLL.Interfaces;
-using System.Linq.Expressions;
-
+using FS.ProductCatalogService.BLL.Interfaces.DB;
 namespace FS.ProductCatalogService.BLL;
 
-internal class PredicateBuilder<TEntity, TFilter> : IPredicateBuilder<TEntity, TFilter>
+internal class PredicateBuilder<TEntity, TFilter>(IRepository<TEntity> repository) : IPredicateBuilder<TEntity, TFilter>
     where TEntity : class
     where TFilter : class
 {
-    public Expression<Func<TEntity, bool>> Build(TFilter filter)
-    {
-        return x => true;
-    }
+    private readonly IRepository<TEntity> _repository = repository;
+
+    public IQueryable<TEntity> Build(TFilter filter) => _repository.AsQueryable();
 }
