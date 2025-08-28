@@ -10,8 +10,8 @@ public class ProductCatalogCategoriesController(IProductCatalogCategoryBLL produ
 {
     private readonly IProductCatalogCategoryBLL _productCatalogCategoryBLL = productCatalogCategoryBLL;
 
-    [HttpPost]
-    public async Task<ProductCatalogCategoryResponse[]> CreateAsync([FromBody] ProductCatalogCategoryFilter filter,
+    [HttpGet]
+    public async Task<ProductCatalogCategoryResponse[]> GetArrayAsync([FromQuery] ProductCatalogCategoryFilter filter,
         CancellationToken cancellationToken)
     {
         return await _productCatalogCategoryBLL.GetArrayAsync(filter, cancellationToken);

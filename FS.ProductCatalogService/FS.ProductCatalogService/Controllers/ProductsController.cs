@@ -10,8 +10,8 @@ public class ProductsController(IProductBLL productBLL) : Controller
 {
     private readonly IProductBLL _productBLL = productBLL;
 
-    [HttpPost]
-    public async Task<ProductResponse[]> CreateAsync([FromBody] ProductFilter filter,
+    [HttpGet]
+    public async Task<ProductResponse[]> GetArrayAsync([FromQuery] ProductFilter filter,
         CancellationToken cancellationToken)
     {
         return await _productBLL.GetArrayAsync(filter, cancellationToken);
