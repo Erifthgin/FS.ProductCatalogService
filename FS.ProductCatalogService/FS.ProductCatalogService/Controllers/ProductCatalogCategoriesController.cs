@@ -1,9 +1,10 @@
 ﻿using FS.ProductCatalogService.BLL.Interfaces.ProductCatalogCategories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FS.ProductCatalogService.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ProductCatalogCategoriesController(IProductCatalogCategoryBLL productCatalogCategoryBLL) : Controller

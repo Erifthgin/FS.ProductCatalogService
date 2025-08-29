@@ -11,6 +11,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        var cfg = builder.Configuration.GetSection("Keycloak");
+        options.Authority = cfg["Authority"];
+
+        if (builder.Environment.IsDevelopment())
+            options.RequireHttpsMetadata = false;
+
+        options.TokenValidationParameters.ValidateAudience = false;
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
